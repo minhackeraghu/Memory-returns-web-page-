@@ -1,0 +1,467 @@
+/* Define Flatlion font */
+@font-face {
+    font-family: 'Flatlion';
+    src: url('Flatlion Personal Use Only.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Define League Spartan font */
+@font-face {
+    font-family: 'League Spartan';
+    src: url('LeagueSpartan-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Load Crimson Pro font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;700&display=swap');
+
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+/* Header styling */
+.header {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    margin-top: -5px;
+}
+
+/* Header title container with top and bottom borders */
+.header-title-container {
+    position: relative;
+    display: inline-block;
+    padding: 5px 0; /* Adjust vertical spacing inside the container */
+    margin-top: 10px; /* Create more space above the top line */
+    margin-bottom: 10px; /* Create more space below the bottom line */
+}
+
+/* Replace top and bottom lines with controlled ones */
+.header-title-container::before, .header-title-container::after {
+    content: "";
+    position: absolute;
+    height: 2px; /* Thickness */
+    background-color: #3d3b3a; /* Line color */
+}
+
+.header-title-container::before {
+    top: 0; /* Top line */
+    left: 6.3%; /* Starts slightly inset */
+    width: 88%; /* Adjust length */
+}
+
+.header-title-container::after {
+    bottom: 2px; /* Bottom line */
+    right: 6.3%; /* Ends slightly inset */
+    width: 88%; /* Adjust length */
+}
+
+/* Header title styling */
+.header-title {
+    font-family: 'Flatlion', sans-serif;
+    font-size: 150px;
+    font-weight: normal;
+    color: #3d3b3a;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0 10px;
+    position: relative;
+}
+
+/* Header subtitle styling */
+.header-subtitle {
+    font-family: 'Crimson Pro', serif;
+    font-size: 12.4px; /* 1/12th of header-title size */
+    letter-spacing: 0.2em;
+    color: #3d3b3a;
+    margin-top: 2px;
+}
+
+/* Left border dynamically breaks around middle of "S" */
+.header-left {
+    position: absolute;
+    left: 30px;
+    top: 0%; /* Start above "S" */
+    bottom: 35%; /* End below "S" */
+    width: 2px;
+    background-color: #3d3b3a;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    animation: move-right 3s infinite alternate;
+}
+
+/* Right border dynamically breaks around middle of "M" */
+.header-right {
+    position: absolute;
+    right: 30px;
+    top: 35%; /* Start above "M" */
+    bottom: 1%; /* End below "M" */
+    width: 2px;
+    background-color: #3d3b3a;
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+    animation: move-right 3s infinite alternate;
+}
+
+.header-left-opposite {
+    position: absolute;
+    left: 28px;
+    top: 35%; /* Start at the middle of "S" */
+    bottom: 1%; /* Extend below */
+    width: 2px;
+    background-color: #3d3b3a;
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+}
+
+/* Opposite Right border dynamically breaks above middle of "M" */
+.header-right-opposite {
+    position: absolute;
+    right: 28px;
+    top: 0%; /* Extend above */
+    bottom: 30%; /* End at the middle of "M" */
+    width: 2px;
+    background-color: #3d3b3a;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+}
+
+/* Banner styling */
+.banner {
+    font-family: 'League Spartan', sans-serif;
+    font-size: 32px;
+    width: 100%; /* Full width */
+    height: 100px; /* Adjust height as needed */
+    background-color: #919191;
+    color: #ffffff;
+    margin: 30px auto; /* Adjust spacing outside the banner */
+    margin-top: -5px;
+    margin-bottom: 180PX;
+    padding: 0; /* Remove default padding */
+    position: relative;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    text-align: center; /* Ensures text inside is centered */
+    border: 2px solid #ccc;
+    box-sizing: border-box; /* Considers padding and border in dimensions */
+}
+
+/* Diamond button styling */
+.diamond-button {
+    position: absolute;
+    width: 40px; /* Adjust button size */
+    height: 40px;
+    background-color: transparent;
+    border: none; /* Remove default button border */
+    cursor: pointer; /* Pointer cursor for interaction */
+}
+
+/* Styling for individual cubes */
+.cube {
+    position: absolute;
+    width: 20px; /* Size of each small cube */
+    height: 20px;
+    background-color: #000000; /* Cube color */
+    transform: rotate(45deg); /* Rotate to make it diamond-shaped */
+}
+
+/* Position cubes within the diamond */
+.cube.top {
+    top: -10px;
+    left: 10px;
+}
+
+.cube.left {
+    left: -10px;
+    top: 10px;
+}
+
+.cube.right {
+    right: -10px;
+    top: 10px;
+}
+
+.cube.bottom {
+    bottom: -10px;
+    left: 10px;
+}
+
+/* Positioning the diamond buttons */
+.diamond-button.left-top {
+    top: 28px; /* Offset from banner top edge */
+    left: 17px; /* Offset from banner left edge */
+}
+
+.diamond-button.right-bottom {
+    bottom: 28px; /* Offset from banner bottom edge */
+    right: 17px; /* Offset from banner right edge */
+}
+
+/* Hover effect for diamond buttons */
+.diamond-button:hover .cube {
+    background-color: #ffffff; /* Change cube color on hover */
+    transition: background-color 0.1s ease; /* Smooth transition */
+}
+
+.hamburger-menu {
+    position: absolute;
+    bottom: -35px; /* Adjusts it near the bottom */
+    left: 20px; /* Moves it to the bottom-right corner */
+    width: 40px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* First line - Long & Right */
+.hamburger-menu .line1 {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    align-self: flex-end;
+}
+
+/* Second line - Short & Center */
+.hamburger-menu .line2 {
+    width: 15px;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    align-self: center;
+}
+
+/* Third line - Long & Left */
+.hamburger-menu .line3 {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    border-radius: 2px;
+    align-self: flex-start;
+}
+
+.hamburger-menu-duplicate {
+    position: absolute;
+    bottom: -35px; /* Adjust to the desired location */
+    right: 20px; /* Position near the bottom-right corner */
+    width: 40px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1000; /* Ensure visibility */
+}
+
+.hamburger-menu-duplicate .line1,
+.hamburger-menu-duplicate .line2,
+.hamburger-menu-duplicate .line3 {
+    background-color: black;
+    border-radius: 2px;
+}
+
+.hamburger-menu-duplicate .line1 {
+    width: 30px;
+    height: 4px;
+    align-self: flex-start; /* Mirrored: Align to the left */
+}
+
+.hamburger-menu-duplicate .line2 {
+    width: 15px;
+    height: 4px;
+    align-self: center; /* Center remains the same */
+}
+
+.hamburger-menu-duplicate .line3 {
+    width: 30px;
+    height: 4px;
+    align-self: flex-end; /* Mirrored: Align to the right */
+}
+
+
+/* Hidden sliding menu bar */
+.menu-bar {
+    position: absolute;
+    top: 140px; /* Positioned slightly below the banner */
+    left: -100%; /* Initially hidden off-screen */
+    width: 168px; /* Set width for the menu bar */
+    height: auto; /* Fit content */
+    background-color: #919191;
+    color: #ffffff;
+    padding: 20px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+    transition: left 0.1s ease; /* Smooth left-to-right transition */
+    border-top-left-radius: 10px; /* Optional rounded edge */
+    border-bottom-left-radius: 10px; /* Optional rounded edge */
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 1000; 
+}
+
+.menu-bar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-bar li {
+    margin: 10px 0;
+}
+
+.menu-bar a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.menu-bar a:hover {
+    color: #5f5f5f; /* Change color on hover */
+    transition: color 0.3s ease;
+}
+
+/* Photo frame styling */
+.photo-frame {
+    display: inline-block;
+    width: 180px; /* Adjust width for Polaroid proportions */
+    height: 240px; /* Adjust height to create the signature Polaroid look */
+    background-color: rgb(0, 0, 0); /* Default background color for the photo area */
+    margin: 10px; /* Adjust spacing between frames */
+    margin-bottom: 150px;
+    border: 3px solid rgb(255, 255, 255); /* Default white border to mimic Polaroid film */
+    box-sizing: border-box; /* Ensure border is included in dimensions */
+    text-align: center; /* Center any text content inside */
+    position: relative; /* Position for inner elements (e.g., captions) */
+    transform: rotate(0deg); /* Default angle */
+    cursor: pointer; /* Adds a pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.photo-frame:hover {
+    background-color: rgb(255, 255, 255); /* Inner box turns white */
+    border-color: rgb(0, 0, 0); /* Border becomes black */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Add subtle shadow for hover effect */
+}
+
+.photo-frame:nth-child(1) {
+    bottom: 01px;
+    transform: rotate(4deg); /* Rotate the second Polaroid 30 degrees to the right */
+    margin-right: 22px; /* Add extra space between the second and third Polaroids */
+}
+
+.photo-frame:nth-child(2) {
+    bottom: 30px;
+    transform: rotate(-10deg); /* Rotate the second Polaroid 30 degrees to the right */
+    margin-right: 100px; /* Add extra space between the second and third Polaroids */
+}
+
+.photo-frame:nth-child(3) {
+    bottom: 30px;
+    transform: rotate(10deg); /* Same rotation as the second Polaroid */
+    margin-left: 22px; /* Slight spacing adjustment for visual balance */
+}
+
+/* Specific style for the fourth Polaroid */
+.photo-frame:nth-child(4) {
+    bottom: 01px;
+    transform: rotate(-4deg); /* Same rotation as the second Polaroid */
+    margin-left: 22px; /* Slight spacing adjustment for visual balance */
+}
+
+/* Inner content (photo area) */
+.photo-frame::before {
+    content: "";
+    display: block;
+    width: 90%; /* Smaller than the frame width for the photo area */
+    height: 70%; /* Centered photo area within the frame */
+    background-color: rgb(255, 255, 255); /* Default photo area color */
+    margin: 5px auto; /* Align photo centrally */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.photo-frame:hover::before {
+    background-color: rgb(0, 0, 0); /* Photo area becomes white */
+}
+
+/* Bottom caption area */
+.photo-frame::after {
+    font-size: 12px; /* Smaller font for the caption */
+    color: #3d3b3a; /* Default caption color */
+    position: absolute;
+    bottom: 10px; /* Position text in the caption area */
+    width: 100%;
+    text-align: center;
+    font-family: 'League Spartan', sans-serif; /* Add personality to the font */
+    transition: color 0.3s ease; /* Smooth transition for text color on hover */
+}
+
+.photo-frame:hover::after {
+    color: rgb(0, 0, 0); /* Change caption text color to black */
+}
+/* Create section styling */
+.create-container {
+    text-align: center; /* Centers all inner content horizontally */
+    margin-top: 20px;
+}
+
+/* Styling for the text "Create" */
+.create-text {
+    margin-bottom: 15px; /* Adjust spacing above the box */
+    font-size: 20px; /* Adjust font size if needed */
+    color: #3d3b3a;
+}
+
+/* Styling for the "+" inside the box */
+.create-section .plus-sign {
+    font-size: 254px; /* Size of the "+" symbol */
+    color: gray; /* Text color */
+    background-color: transparent; /* No background color */
+    border: 3px solid #3d3b3a; /* Border thickness and color */
+    width: 190px; /* Fixed width */
+    height: 190px; /* Fixed height */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center text horizontally */
+    align-items: center; /* Center text vertically */
+    margin: 10px auto; /* Center the button horizontally on the page */
+    box-sizing: border-box; /* Ensure padding and border are included in total width/height */
+    cursor: pointer; /* Adds a pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth animation for hover effect */
+}
+
+/* Inner circle */
+.plus-sign::before {
+    content: "";
+    width: 150px; /* Inner circle size */
+    height: 150px;
+    background-color: #ffffff; /* Inner circle background */
+    border: 3px solid #3d3b3a; /* Inner circle border */
+    border-radius: 50%; /* Make the inner circle */
+    position: absolute; /* Center it inside the outer circle */
+}
+
+/* "+" sign inside the inner circle */
+.plus-sign::after {
+    content: "+";
+    font-size: 150px; /* Size of the "+" sign */
+    color: #3d3b3a; /* Color of the "+" sign */
+    position: absolute; /* Centered within the inner circle */
+    font-family: 'League Spartan', sans-serif; /* Font styling */
+}
+
+/* Hover effect */
+.plus-sign:hover {
+    background-color: #ffffff; /* Change outer circle background on hover */
+    border-color: #3d3b3a; /* Change outer circle border color */
+    transform: scale(1.1); /* Slightly enlarge the entire button */
+}
+
+.plus-sign:hover::before {
+    background-color: #3d3b3a; /* Change inner circle background on hover */
+    border-color: #ffffff; /* Change inner circle border color */
+}
+
+.plus-sign:hover::after {
+    color: #ffffff; /* Change "+" sign color */
+}
